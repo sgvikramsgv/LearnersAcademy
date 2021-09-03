@@ -3,6 +3,7 @@ C:\Users\sgvik\eclipse-workspace\LearnersAcademy\src\main\java\com\learners\util
 C:\Users\sgvik\eclipse-workspace\LearnersAcademy\src\main\java\com\learners\servlets\StudentController.java
 C:\Users\sgvik\eclipse-workspace\LearnersAcademy\src\main\java\com\learners\entities\LaClass.java
 C:\Users\sgvik\eclipse-workspace\LearnersAcademy\src\main\java\com\learners\daos\laTeacherDao.java
+C:\Users\sgvik\eclipse-workspace\LearnersAcademy\src\main\java\com\learners\servlets\AssignStudentClasses.java
 C:\Users\sgvik\eclipse-workspace\LearnersAcademy\src\main\java\com\learners\servlets\HomeServlet.java
 C:\Users\sgvik\eclipse-workspace\LearnersAcademy\src\main\java\com\learners\entities\LaTeacher.java
 C:\Users\sgvik\eclipse-workspace\LearnersAcademy\src\main\java\com\learners\daos\laStudentDao.java
@@ -14,3 +15,4 @@ C:\Users\sgvik\eclipse-workspace\LearnersAcademy\src\main\java\com\learners\enti
 C:\Users\sgvik\eclipse-workspace\LearnersAcademy\src\main\java\com\learners\servlets\ClassController.java
 C:\Users\sgvik\eclipse-workspace\LearnersAcademy\src\main\java\com\learners\daos\laClassesDao.java
 C:\Users\sgvik\eclipse-workspace\LearnersAcademy\src\main\java\com\learners\servlets\LoginCheck.java
+C:\Users\sgvik\eclipse-workspace\LearnersAcademy\src\main\java\com\learners\servlets\AssignTeachers.java

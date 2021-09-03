@@ -8,7 +8,9 @@ com\learners\utils\dbAccess.class
 com\learners\servlets\StudentController.class
 com\learners\entities\LaTeacher.class
 com\learners\servlets\SubjectController.class
+com\learners\servlets\AssignStudentClasses.class
 com\learners\entities\LaStudent.class
+com\learners\servlets\AssignTeachers.class
 com\learners\servlets\TeacherController.class
 com\learners\servlets\ClassController.class
 com\learners\daos\laSubjectDao.class
