@@ -1,0 +1,49 @@
+@charset "ISO-8859-1";
+
+.logoclass{
+	padding: 3px;
+	margin-right: 2px;
+}
+
+.form-group{
+	margin: 10px;
+}
+
+.headerbackground {
+    background-color: cornflowerblue;
+    color: white;
+    padding-bottom: 5px;
+    margin-bottom: 25px;
+}
+
+.container-main{
+	display: flex;
+	width: auto;
+	justify-content: center;
+}
+
+a.btn.btn-primary.me-2.resourceAdd {
+    width: auto;
+    margin-bottom: 25px;
+}
+
+table {
+	text-align: center;
+}
+
+.resourceAdd {
+	margin-bottom: 20px;
+}
+
+.headerrow {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 25%;
+    text-align: center;
+}
+
+.logoheader{
+	align-items: center!important;
+	justify-content: center!important;
+}
