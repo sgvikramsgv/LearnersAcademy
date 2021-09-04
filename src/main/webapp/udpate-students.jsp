@@ -1,5 +1,12 @@
 <%@include file="/asset/header.jsp" %>
+<%@page import = "java.util.List, com.learners.daos.laClassesDao, com.learners.entities.LaClass" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<% 
+	List<LaClass> classes = laClassesDao.listClass();
+	request.setAttribute("CLASS_LIST", classes);
+
+%>
 <h3 class="display-8 fw-bold lh-1 text-center">Update Student Form</h3>
 <p></p>
 <p></p>
@@ -27,11 +34,19 @@
 		  <label class="form-check-label" for="genderfemale">Female</label>
 		</div>
 	  </div>
+	  <div class="form-group">
+	  	<label class="form-check-label" for="selectClass">Select Class</label>
+	  	<select class="form-control" id="selectClass" name="selectClass">
+	      <c:forEach items="${CLASS_LIST}" var="cla">
+				<option value="${cla.id}">${cla.name}</option>
+			</c:forEach>
+	    </select>
+	  </div>
 	  <div class="form-group form-check">
 	
 	  </div>
 	  <input type="submit" class="btn btn-primary btn-sm form-control resourceAdd" value="Submit">
-	  <a href="ClassController" class="btn btn-primary btn-sm form-control resourceAdd">Cancel</a>
+	  <a href="StudentController" class="btn btn-primary btn-sm form-control resourceAdd">Cancel</a>
 	</form>
 	
 	<div class="col"></div>

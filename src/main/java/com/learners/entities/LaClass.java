@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -13,7 +14,6 @@ public class LaClass {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="class_id")
 	private long id;
 	
 	@Column(name="class_name")
@@ -21,9 +21,7 @@ public class LaClass {
 	
 	@Column(name="class_capacity")
 	private int capacity;
-	
-	
-	
+
 	public LaClass() {
 		super();
 	}

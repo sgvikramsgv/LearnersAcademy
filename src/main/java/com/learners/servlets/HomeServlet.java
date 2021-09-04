@@ -42,10 +42,19 @@ public class HomeServlet extends HttpServlet {
 		List<LaSubject> subjects = laSubjectDao.listSubject();
 		List<LaClass> classes = laClassesDao.listClass();
 		
-		request.getSession().setAttribute("STUDENTS_LIST", students);
-		request.getSession().setAttribute("TEACHER_LIST", teachers);
-		request.getSession().setAttribute("SUBJECT_LIST", subjects);
-		request.getSession().setAttribute("CLASSES_LIST", classes);
+		if(students!=null) {
+			request.getSession().setAttribute("STUDENTS_LIST", students);
+		}
+		if(teachers!=null) {
+			request.getSession().setAttribute("TEACHER_LIST", teachers);
+		}
+		if(subjects!=null) {
+			request.getSession().setAttribute("SUBJECT_LIST", subjects);
+		}
+		if(classes!=null) {
+			request.getSession().setAttribute("CLASSES_LIST", classes);
+		}
+		
 		
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
@@ -57,10 +66,18 @@ public class HomeServlet extends HttpServlet {
 		List<LaSubject> subjects = laSubjectDao.listSubject();
 		List<LaClass> classes = laClassesDao.listClass();
 		
-		request.getSession().setAttribute("STUDENTS_LIST", students);
-		request.getSession().setAttribute("TEACHER_LIST", teachers);
-		request.getSession().setAttribute("SUBJECT_LIST", subjects);
-		request.getSession().setAttribute("CLASSES_LIST", classes);
+		if(students!=null) {
+			request.getSession().setAttribute("STUDENTS_LIST", students);
+		}
+		if(teachers!=null) {
+			request.getSession().setAttribute("TEACHER_LIST", teachers);
+		}
+		if(subjects!=null) {
+			request.getSession().setAttribute("SUBJECT_LIST", subjects);
+		}
+		if(classes!=null) {
+			request.getSession().setAttribute("CLASSES_LIST", classes);
+		}
 
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}

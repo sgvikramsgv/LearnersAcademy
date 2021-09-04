@@ -1,6 +1,7 @@
 package com.learners.servlets;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -10,6 +11,9 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
+
+import com.learners.daos.laAdminDao;
+import com.learners.entities.LaUser;
 
 /**
  * Servlet Filter implementation class LoginCheckFilter
@@ -21,6 +25,8 @@ import javax.servlet.http.HttpServletRequest;
 	"/TeacherController",
 	"/AssignStudentClasses",
 	"/AssignTeachers",
+	"/AdminController",
+	"/add-admin.jsp",
 	"/add-class-form.jsp",
 	"/add-subject-form.jsp",
 	"/add-student-form.jsp",
@@ -66,22 +72,28 @@ public class LoginCheckFilter implements Filter {
 		if(loggedUser == null) {
 			loggedUser = "";
 		}
-		/*
-		 * if((!loggedAdmin.equals("admin")) && ((loggedSession.equals(null) ||
-		 * loggedSession.equals("")))) { request.setAttribute("outcome",
-		 * "Not Logged In. Please Login");
-		 * request.getRequestDispatcher("result.jsp").forward(request, response); } {
-		 * chain.doFilter(request, response); }
-		 */
 		
-		if(loggedUser.equals("admin")) {
+		List<LaUser> userList = laAdminDao.getAdminList();
+		boolean userFound = checkUserLoggedIn(userList, loggedUser);
+		
+		if(userFound) {
 			chain.doFilter(request, response);
 		} else {
 			request.setAttribute("outcome", "Please Login");
 			request.getRequestDispatcher("result.jsp").forward(request, response);
 		}
-		// pass the request along the filter chain
 		
+	}
+
+	private boolean checkUserLoggedIn(List<LaUser> userList, String loggedUser) {
+
+		for (LaUser user : userList) {
+			if(user.getUsername().equals(loggedUser)) {
+				return true;
+			}
+		}
+		
+		return false;
 	}
 
 	/**

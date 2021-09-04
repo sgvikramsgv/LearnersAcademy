@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.learners.daos.laClassesDao;
 import com.learners.daos.laStudentDao;
+import com.learners.entities.LaClass;
 import com.learners.entities.LaStudent;
 
 /**
@@ -69,30 +71,27 @@ public class StudentController extends HttpServlet {
 	
 
 	private void addStudent(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// read student from data
 		
 		String fname = request.getParameter("fname");
 		String lname = request.getParameter("lname");
 		String email = request.getParameter("email");
 		String gender = request.getParameter("gender");
-		//create object of Student
+		String class_id = (request.getParameter("selectClass"));
 		
-		LaStudent tempstu = new LaStudent(fname, lname, email, gender);
+		LaClass tempClass = laClassesDao.editClass(Long.parseLong(class_id));
+		
+		LaStudent tempstu = new LaStudent(fname, lname, email, gender, tempClass);
 		laStudentDao.addStudent(tempstu);
-		//send back to main page
 		
 		listStudents(request, response);
 		
 	}
 	private void listStudents(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//get Students from DB
 		List<LaStudent> allStudents = laStudentDao.listStudents();
 
-		//add students list to request
 		request.getSession().setAttribute("STUDENTS_LIST", allStudents);
 		
-		//send it to JSP 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("list-students.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -122,11 +121,12 @@ public class StudentController extends HttpServlet {
 		String lname = request.getParameter("lname");
 		String email = request.getParameter("email");
 		String gender = request.getParameter("gender");
-		//create object of Student
+		String class_id = (request.getParameter("selectClass"));
+
+		LaClass tempClass = laClassesDao.editClass(Long.parseLong(class_id));
 		
-		LaStudent tempstu = new LaStudent(id, fname, lname, email, gender);
+		LaStudent tempstu = new LaStudent(id, fname, lname, email, gender, tempClass);
 		laStudentDao.udpateStudent(tempstu);
-		//send back to main page
 		
 		listStudents(request, response);
 	}

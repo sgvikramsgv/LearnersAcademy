@@ -16,7 +16,7 @@ public class laStudentDao {
 		
 		List<LaStudent> allStudents = null;
 		
-		SessionFactory sf = dbAccess.getSessionFactory(LaStudent.class);
+		SessionFactory sf = dbAccess.getSessionFactory();
 		Session session = sf.openSession();
 		Transaction tx = null;
 		
@@ -39,7 +39,7 @@ public class laStudentDao {
 	
 	public static void addStudent(LaStudent stu) {
 		
-		SessionFactory sf = dbAccess.getSessionFactory(LaStudent.class);
+		SessionFactory sf = dbAccess.getSessionFactory();
 		Session session = sf.openSession();
 		Transaction tx = null;
 		
@@ -61,7 +61,7 @@ public class laStudentDao {
 	
 	public static void deleteStudent(long studentId) {
 			
-			SessionFactory sf = dbAccess.getSessionFactory(LaStudent.class);
+			SessionFactory sf = dbAccess.getSessionFactory();
 			Session session = sf.openSession();
 			Transaction tx = null;
 			LaStudent student = null;
@@ -85,7 +85,7 @@ public class laStudentDao {
 	
 	public static LaStudent editStudent(long studentId) {
 		
-		SessionFactory sf = dbAccess.getSessionFactory(LaStudent.class);
+		SessionFactory sf = dbAccess.getSessionFactory();
 		Session session = sf.openSession();
 		Transaction tx = null;
 		LaStudent student = null;
@@ -109,7 +109,7 @@ public class laStudentDao {
 
 	public static void udpateStudent(LaStudent tempstu) {
 		
-		SessionFactory sf = dbAccess.getSessionFactory(LaStudent.class);
+		SessionFactory sf = dbAccess.getSessionFactory();
 		Session session = sf.openSession();
 		Transaction tx = null;
 				

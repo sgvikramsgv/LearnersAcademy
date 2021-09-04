@@ -16,7 +16,7 @@ public static List<LaSubject> listSubject(){
 		
 		List<LaSubject> allSubjects = null;
 		
-		SessionFactory sf = dbAccess.getSessionFactory(LaSubject.class);
+		SessionFactory sf = dbAccess.getSessionFactory();
 		Session session = sf.openSession();
 		Transaction tx = null;
 		
@@ -39,7 +39,7 @@ public static List<LaSubject> listSubject(){
 	
 	public static void addSubject(LaSubject sub) {
 		
-		SessionFactory sf = dbAccess.getSessionFactory(LaSubject.class);
+		SessionFactory sf = dbAccess.getSessionFactory();
 		Session session = sf.openSession();
 		Transaction tx = null;
 		
@@ -61,7 +61,7 @@ public static List<LaSubject> listSubject(){
 	
 	public static void deleteSubject(long subjectId) {
 			
-			SessionFactory sf = dbAccess.getSessionFactory(LaSubject.class);
+			SessionFactory sf = dbAccess.getSessionFactory();
 			Session session = sf.openSession();
 			Transaction tx = null;
 			LaSubject subject = null;
@@ -85,7 +85,7 @@ public static List<LaSubject> listSubject(){
 	
 	public static LaSubject editSubject(long subjectId) {
 		
-		SessionFactory sf = dbAccess.getSessionFactory(LaSubject.class);
+		SessionFactory sf = dbAccess.getSessionFactory();
 		Session session = sf.openSession();
 		Transaction tx = null;
 		LaSubject subject = null;
@@ -109,7 +109,7 @@ public static List<LaSubject> listSubject(){
 
 	public static void udpateSubject(LaSubject tempsub) {
 		
-		SessionFactory sf = dbAccess.getSessionFactory(LaSubject.class);
+		SessionFactory sf = dbAccess.getSessionFactory();
 		Session session = sf.openSession();
 		Transaction tx = null;
 				

@@ -1,6 +1,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page import="com.learners.entities.LaStudent" %>
-<%@page import="java.util.List" %>
+<%@page import = "java.util.List, com.learners.daos.laClassesDao, com.learners.entities.LaClass" %>
 <%@include file="/asset/header.jsp" %>
 
 <p></p>
@@ -19,6 +18,7 @@
 		      <th scope="col">Last Name</th>
 		      <th scope="col">Email</th>
 		      <th scope="col">Gender</th>
+		      <th scope="col">Enrolled Class</th>
 		      <th scope="col">Action</th>
 		    </tr>
 		  </thead>
@@ -30,6 +30,7 @@
 					<td>${stu.lastName}</td>
 					<td>${stu.email}</td>
 					<td>${stu.gender}</td>
+					<td>${stu.class_id.name}</td>
 					<td>
 						<a  type="button" class="btn btn-outline-primary me-2 btn-sm" href="StudentController?REQUEST_TYPE=EDIT&user=${stu.id}">Edit User</a>
 						<a  type="button" class="btn btn-primary me-2 btn-sm" href="StudentController?REQUEST_TYPE=DELETE&user=${stu.id}">Delete User</a>

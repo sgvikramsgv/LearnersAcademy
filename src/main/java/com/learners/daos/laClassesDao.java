@@ -16,7 +16,7 @@ public class laClassesDao {
 		
 		List<LaClass> allclass = null;
 		
-		SessionFactory sf = dbAccess.getSessionFactory(LaClass.class);
+		SessionFactory sf = dbAccess.getSessionFactory();
 		Session session = sf.openSession();
 		Transaction tx = null;
 		
@@ -39,7 +39,7 @@ public class laClassesDao {
 	
 	public static void addClass(LaClass c) {
 		
-		SessionFactory sf = dbAccess.getSessionFactory(LaClass.class);
+		SessionFactory sf = dbAccess.getSessionFactory();
 		Session session = sf.openSession();
 		Transaction tx = null;
 		
@@ -61,7 +61,7 @@ public class laClassesDao {
 	
 	public static void deleteClass(long classId) {
 			
-			SessionFactory sf = dbAccess.getSessionFactory(LaClass.class);
+			SessionFactory sf = dbAccess.getSessionFactory();
 			Session session = sf.openSession();
 			Transaction tx = null;
 			LaClass c = null;
@@ -85,7 +85,7 @@ public class laClassesDao {
 	
 	public static LaClass editClass(long classId) {
 		
-		SessionFactory sf = dbAccess.getSessionFactory(LaClass.class);
+		SessionFactory sf = dbAccess.getSessionFactory();
 		Session session = sf.openSession();
 		Transaction tx = null;
 		LaClass c = null;
@@ -109,7 +109,7 @@ public class laClassesDao {
 
 	public static void udpateClass(LaClass tempc) {
 		
-		SessionFactory sf = dbAccess.getSessionFactory(LaClass.class);
+		SessionFactory sf = dbAccess.getSessionFactory();
 		Session session = sf.openSession();
 		Transaction tx = null;
 				

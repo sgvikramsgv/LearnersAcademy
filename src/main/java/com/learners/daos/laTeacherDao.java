@@ -16,7 +16,7 @@ public static List<LaTeacher> listTeachers(){
 		
 		List<LaTeacher> allTeachers = null;
 		
-		SessionFactory sf = dbAccess.getSessionFactory(LaTeacher.class);
+		SessionFactory sf = dbAccess.getSessionFactory();
 		Session session = sf.openSession();
 		Transaction tx = null;
 		
@@ -39,7 +39,7 @@ public static List<LaTeacher> listTeachers(){
 	
 	public static void addTeacher(LaTeacher teach) {
 		
-		SessionFactory sf = dbAccess.getSessionFactory(LaTeacher.class);
+		SessionFactory sf = dbAccess.getSessionFactory();
 		Session session = sf.openSession();
 		Transaction tx = null;
 		
@@ -61,7 +61,7 @@ public static List<LaTeacher> listTeachers(){
 	
 	public static void deleteTeacher(long teacherId) {
 			
-			SessionFactory sf = dbAccess.getSessionFactory(LaTeacher.class);
+			SessionFactory sf = dbAccess.getSessionFactory();
 			Session session = sf.openSession();
 			Transaction tx = null;
 			LaTeacher teacher = null;
@@ -85,7 +85,7 @@ public static List<LaTeacher> listTeachers(){
 	
 	public static LaTeacher editTeacher(long teacherId) {
 		
-		SessionFactory sf = dbAccess.getSessionFactory(LaTeacher.class);
+		SessionFactory sf = dbAccess.getSessionFactory();
 		Session session = sf.openSession();
 		Transaction tx = null;
 		LaTeacher teacher = null;
@@ -109,7 +109,7 @@ public static List<LaTeacher> listTeachers(){
 
 	public static void udpateTeacher(LaTeacher tempteach) {
 		
-		SessionFactory sf = dbAccess.getSessionFactory(LaTeacher.class);
+		SessionFactory sf = dbAccess.getSessionFactory();
 		Session session = sf.openSession();
 		Transaction tx = null;
 				
