@@ -7,14 +7,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name="Student",
 uniqueConstraints= {
-		@UniqueConstraint(columnNames="student_id"),
 		@UniqueConstraint(columnNames="email")
 }
 )
@@ -37,7 +37,8 @@ public class LaStudent {
 	@Column(name="gender")
 	private String gender;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@ManyToOne
+	@JoinColumn(name="class_id")
 	private LaClass class_id;
 
 	

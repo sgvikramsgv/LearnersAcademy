@@ -1,11 +1,13 @@
 package com.learners.entities;
 
+import java.util.Collection;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -13,7 +15,6 @@ import javax.persistence.UniqueConstraint;
 @Table(name="class",
 uniqueConstraints= {
 		@UniqueConstraint(columnNames="class_name"),
-		@UniqueConstraint(columnNames="class_id")
 	}
 )
 public class LaClass {
@@ -28,7 +29,10 @@ public class LaClass {
 	
 	@Column(name="class_capacity")
 	private int capacity;
-
+	
+	@OneToMany(mappedBy="class_id")
+	private Collection<LaStudent> students;
+	
 	public LaClass() {
 		super();
 	}

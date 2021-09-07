@@ -63,10 +63,12 @@ public class LoginCheck extends HttpServlet {
 				sess.setAttribute("outcome", "Defailt Admin User created with user ID " + loginuser);
 				//request.getRequestDispatcher("result.jsp").forward(request, response);
 				newUserAdded = false;
-				request.getRequestDispatcher("result.jsp").forward(request, response);	
+				//request.getRequestDispatcher("result.jsp").forward(request, response);
+				response.sendRedirect("HomeServlet");
 			} else {
 				sess.setAttribute("loggeduer", loginuser);
-				request.getRequestDispatcher("HomeServlet").forward(request, response);	
+				//request.getRequestDispatcher("HomeServlet").forward(request, response);
+				response.sendRedirect("HomeServlet");
 			}
 			
 		} else {

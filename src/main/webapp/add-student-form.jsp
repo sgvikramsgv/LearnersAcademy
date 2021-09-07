@@ -46,7 +46,7 @@
 	
 	  </div>
 	  <input type="submit" class="btn btn-primary btn-sm form-control resourceAdd" value="Submit">
-	  <a href="ClassController" class="btn btn-primary btn-sm form-control resourceAdd">Cancel</a>
+	  <a href="StudentController" class="btn btn-primary btn-sm form-control resourceAdd">Cancel</a>
 	</form>
 	
 	<div class="col"></div>

@@ -11,7 +11,6 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @Table(name="Teacher",
 uniqueConstraints= {
-		@UniqueConstraint(columnNames="teacher_id"),
 		@UniqueConstraint(columnNames="email")
 }
 )

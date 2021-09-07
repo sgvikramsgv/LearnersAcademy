@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.learners.daos.laClassesDao;
+import com.learners.daos.laStudentDao;
 import com.learners.entities.LaClass;
+import com.learners.entities.LaStudent;
 
 /**
  * Servlet implementation class ClassController
@@ -107,9 +109,24 @@ String requestType = request.getParameter("REQUEST_TYPE");
 	private void deleteClass(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		long classId = Integer.parseInt(request.getParameter("cla"));
-		laClassesDao.deleteClass(classId);
+		List<LaStudent> students = null;
+		students = laStudentDao.listStudents();
+		boolean studentFound = false;
 		
-		listClass(request, response);
+		if(students!=null) {
+			for (LaStudent laStudent : students) {
+				if(laStudent.getClass_id().getId()==classId) {
+					studentFound = true;
+				}
+			}
+			if(studentFound) {
+				request.setAttribute("outcome", "Students Still Mapped to this Class. Cannot Delete");
+				request.getRequestDispatcher("result.jsp").forward(request, response);
+			} else {
+				laClassesDao.deleteClass(classId);	
+				listClass(request, response);
+			}
+		} 
 	}
 	
 	private void updateClass(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
