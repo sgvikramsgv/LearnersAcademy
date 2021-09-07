@@ -1,5 +1,6 @@
 package com.learners.daos;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -23,6 +24,9 @@ public static List<LaTeacher> listTeachers(){
 		try {
 			tx = session.beginTransaction();
 			allTeachers = session.createQuery("from LaTeacher").list();
+			if(allTeachers == null) {
+				allTeachers = Collections.emptyList();
+			}
 			tx.commit();
 			session.close();
 		} catch (Exception e) {

@@ -38,20 +38,37 @@ public class LoginCheck extends HttpServlet {
 		sess = request.getSession();
 		
 		boolean userFound = false;
+		boolean newUserAdded = false;
 		
 		List<LaUser> userList = laAdminDao.getAdminList();
+		System.out.println("userList in LoginCheck: " + userList);
+		System.out.println("User details : "+ loginuser + "    " + loginpassword);
 		
 		if(userList == null || userList.isEmpty()) {
-			laAdminDao.addAdmin(new LaUser("admin", "admin"));
-			userList = laAdminDao.getAdminList();
-			userFound = checkUserLoggedIn(userList, loginuser, loginpassword);
+			System.out.println("Creating new Admin user: " + loginuser);
+			laAdminDao.addAdmin(new LaUser(loginuser, loginpassword));
+			System.out.println("Created new Admin user: " + loginuser);
+
+			userFound = true;
+			newUserAdded = true;
+						
 		} else {
+
 			userFound = checkUserLoggedIn(userList, loginuser, loginpassword);
 		}
 		
 		if(userFound) {
-			sess.setAttribute("loggeduer", loginuser);
-			request.getRequestDispatcher("HomeServlet").forward(request, response);
+			if(newUserAdded==true) {
+				sess.setAttribute("loggeduer", loginuser);
+				sess.setAttribute("outcome", "Defailt Admin User created with user ID " + loginuser);
+				//request.getRequestDispatcher("result.jsp").forward(request, response);
+				newUserAdded = false;
+				request.getRequestDispatcher("result.jsp").forward(request, response);	
+			} else {
+				sess.setAttribute("loggeduer", loginuser);
+				request.getRequestDispatcher("HomeServlet").forward(request, response);	
+			}
+			
 		} else {
 			sess.setAttribute("outcome", "Login Failed");
 			request.getRequestDispatcher("result.jsp").forward(request, response);

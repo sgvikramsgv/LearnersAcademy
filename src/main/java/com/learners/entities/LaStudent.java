@@ -9,9 +9,15 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name="Student")
+@Table(name="Student",
+uniqueConstraints= {
+		@UniqueConstraint(columnNames="student_id"),
+		@UniqueConstraint(columnNames="email")
+}
+)
 public class LaStudent {
 	
 	@Id

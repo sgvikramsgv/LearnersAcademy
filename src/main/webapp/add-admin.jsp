@@ -11,7 +11,7 @@
 	    <input type="text" class="form-control" id="adminuser" name="adminuser" placeholder="User Name">
 	  </div>
 	  <div class="form-group">
-	    <input type="text" class="form-control" id="adminpass" name="adminpass" placeholder="Password">
+	    <input type="password" class="form-control" id="adminpass" name="adminpass" placeholder="Password">
 	  </div>
 	  <div class="form-group form-check">
 	

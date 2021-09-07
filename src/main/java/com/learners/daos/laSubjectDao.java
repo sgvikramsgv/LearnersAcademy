@@ -1,5 +1,6 @@
 package com.learners.daos;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -23,6 +24,9 @@ public static List<LaSubject> listSubject(){
 		try {
 			tx = session.beginTransaction();
 			allSubjects = session.createQuery("from LaSubject").list();
+			if(allSubjects == null) {
+				allSubjects = Collections.emptyList();
+			}
 			tx.commit();
 			session.close();
 		} catch (Exception e) {

@@ -6,9 +6,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name="Teacher")
+@Table(name="Teacher",
+uniqueConstraints= {
+		@UniqueConstraint(columnNames="teacher_id"),
+		@UniqueConstraint(columnNames="email")
+}
+)
 public class LaTeacher {
 	
 	@Id

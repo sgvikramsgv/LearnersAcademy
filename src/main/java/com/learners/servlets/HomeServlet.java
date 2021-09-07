@@ -37,23 +37,32 @@ public class HomeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		List<LaStudent> students = laStudentDao.listStudents();
-		List<LaTeacher> teachers = laTeacherDao.listTeachers();
-		List<LaSubject> subjects = laSubjectDao.listSubject();
 		List<LaClass> classes = laClassesDao.listClass();
+		List<LaStudent> students = laStudentDao.listStudents();
+		List<LaSubject> subjects = laSubjectDao.listSubject();
+		List<LaTeacher> teachers = laTeacherDao.listTeachers();
 		
+		if(classes!=null) {
+			request.getSession().setAttribute("CLASSES_LIST", classes);
+		} else {
+			
+		}
 		if(students!=null) {
 			request.getSession().setAttribute("STUDENTS_LIST", students);
+		} else {
+			
 		}
 		if(teachers!=null) {
 			request.getSession().setAttribute("TEACHER_LIST", teachers);
+		} else {
+			
 		}
 		if(subjects!=null) {
 			request.getSession().setAttribute("SUBJECT_LIST", subjects);
+		} else {
+			
 		}
-		if(classes!=null) {
-			request.getSession().setAttribute("CLASSES_LIST", classes);
-		}
+		
 		
 		
 		request.getRequestDispatcher("index.jsp").forward(request, response);

@@ -64,7 +64,8 @@ public class LoginCheckFilter implements Filter {
 		// place your code here
 		HttpServletRequest req = (HttpServletRequest) request;
 		String loggedUser = (String) req.getSession().getAttribute("loggeduer");
-		
+		List<LaUser> userList = null;
+		userList = laAdminDao.getAdminList();
 		System.out.println("Passed through filter");
 
 		System.out.println("Received LoggedAdmin: " + loggedUser);
@@ -73,15 +74,21 @@ public class LoginCheckFilter implements Filter {
 			loggedUser = "";
 		}
 		
-		List<LaUser> userList = laAdminDao.getAdminList();
-		boolean userFound = checkUserLoggedIn(userList, loggedUser);
-		
-		if(userFound) {
-			chain.doFilter(request, response);
-		} else {
+		if(userList == null || userList.isEmpty()) {
 			request.setAttribute("outcome", "Please Login");
 			request.getRequestDispatcher("result.jsp").forward(request, response);
+		} else {
+			boolean userFound = checkUserLoggedIn(userList, loggedUser);
+			if(userFound) {
+				chain.doFilter(request, response);
+			} else {
+				request.setAttribute("outcome", "Please Login");
+				request.getRequestDispatcher("result.jsp").forward(request, response);
+			}
 		}
+		
+		
+		
 		
 	}
 
