@@ -1,5 +1,7 @@
 package com.learners.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,7 +20,7 @@ uniqueConstraints= {
 		@UniqueConstraint(columnNames="email")
 }
 )
-public class LaStudent {
+public class LaStudent  implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -108,7 +110,7 @@ public class LaStudent {
 	@Override
 	public String toString() {
 		return "LaStudent [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", gender=" + gender + ", class_id=" + class_id + "]";
+				+ ", gender=" + gender + "]";
 	}
 
 	public LaClass getClass_id() {

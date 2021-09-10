@@ -23,8 +23,8 @@
         <li><a href="TeacherController" class="nav-link px-2 link-dark">Teachers</a></li>
         <li><a href="StudentController" class="nav-link px-2 link-dark">Students</a></li>
 
-        <li><a href="AssignStudentClasses" class="nav-link px-2 link-dark">Assign-Classes</a></li>
-        <li><a href="AssignTeachers" class="nav-link px-2 link-dark">Assign-Teachers</a></li>
+        <li><a href=ClassSubjectController class="nav-link px-2 link-dark">Map-Class-Subject</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Assign-Teachers</a></li>
       </ul>
 
       <div class="col-md-3 text-end">

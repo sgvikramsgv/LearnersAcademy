@@ -24,7 +24,6 @@ public class laClassesDao {
 		try {
 			tx = session.beginTransaction();
 			allclass = session.createQuery("from LaClass").list();
-			System.out.println("All Class value = " + allclass);
 			if(allclass == null) {
 				allclass = Collections.emptyList();
 			}

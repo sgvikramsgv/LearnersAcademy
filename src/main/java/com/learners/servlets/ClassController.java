@@ -1,6 +1,7 @@
 package com.learners.servlets;
 
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -12,8 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.learners.daos.laClassesDao;
 import com.learners.daos.laStudentDao;
+import com.learners.daos.laSubjectDao;
 import com.learners.entities.LaClass;
 import com.learners.entities.LaStudent;
+import com.learners.entities.LaSubject;
 
 /**
  * Servlet implementation class ClassController
@@ -109,9 +112,21 @@ String requestType = request.getParameter("REQUEST_TYPE");
 	private void deleteClass(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		long classId = Integer.parseInt(request.getParameter("cla"));
+		
+		System.out.println("Received class Id for Delete : " + classId);
+		
 		List<LaStudent> students = null;
 		students = laStudentDao.listStudents();
 		boolean studentFound = false;
+		boolean classHasSubject = false;
+		LaClass tempClass = laClassesDao.editClass(classId);
+		
+		System.out.println("Retrieved temp class for Delete : " + tempClass.toString());
+		System.out.println("TempClass subject data" + tempClass.getSubjects());
+		
+		if(!tempClass.getSubjects().isEmpty()) {
+			classHasSubject=true;
+		}
 		
 		if(students!=null) {
 			for (LaStudent laStudent : students) {
@@ -119,8 +134,12 @@ String requestType = request.getParameter("REQUEST_TYPE");
 					studentFound = true;
 				}
 			}
+			
 			if(studentFound) {
 				request.setAttribute("outcome", "Students Still Mapped to this Class. Cannot Delete");
+				request.getRequestDispatcher("result.jsp").forward(request, response);
+			} else if(classHasSubject) {
+				request.setAttribute("outcome", "Subjects Still Mapped to this Class. Cannot Delete");
 				request.getRequestDispatcher("result.jsp").forward(request, response);
 			} else {
 				laClassesDao.deleteClass(classId);	

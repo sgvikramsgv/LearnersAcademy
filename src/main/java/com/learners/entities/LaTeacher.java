@@ -1,5 +1,7 @@
 package com.learners.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,7 +16,7 @@ uniqueConstraints= {
 		@UniqueConstraint(columnNames="email")
 }
 )
-public class LaTeacher {
+public class LaTeacher  implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
