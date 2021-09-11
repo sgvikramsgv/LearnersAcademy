@@ -38,6 +38,10 @@ public class LaTeacher  implements Serializable {
 	
 	@Column(name="phone")
 	private long phone;
+	
+	
+	@OneToOne(mappedBy="lateacher")
+	private LaLta lalta;
 
 	public LaTeacher(long id, String fname, String lname, String email, String gender, long phone) {
 		super();

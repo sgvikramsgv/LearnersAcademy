@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,14 +20,17 @@ public class LaLta implements Serializable{
 	@Column(name="lta_id")
 	private long id;
 	
-	@Column(name="class_id")
-	private long lta_class_id;
+	@OneToOne
+	@JoinColumn(name="class_id")
+	private LaClass laclass;
 	
-	@Column(name="subject_id")
-	private long lta_subject_id;
+	@OneToOne
+	@JoinColumn(name="subject_id")
+	private LaSubject lasubject;
 	
-	@Column(name="teacher_id")
-	private long lta_teacher_id;
+	@OneToOne
+	@JoinColumn(name="teacher_id")
+	private LaTeacher lateacher;
 
 	public long getId() {
 		return id;
@@ -35,43 +40,43 @@ public class LaLta implements Serializable{
 		this.id = id;
 	}
 
-	public long getLta_class_id() {
-		return lta_class_id;
+	public LaClass getLaclass() {
+		return laclass;
 	}
 
-	public void setLta_class_id(long lta_class_id) {
-		this.lta_class_id = lta_class_id;
+	public void setLaclass(LaClass laclass) {
+		this.laclass = laclass;
 	}
 
-	public long getLta_subject_id() {
-		return lta_subject_id;
+	public LaSubject getLasubject() {
+		return lasubject;
 	}
 
-	public void setLta_subject_id(long lta_subject_id) {
-		this.lta_subject_id = lta_subject_id;
+	public void setLasubject(LaSubject lasubject) {
+		this.lasubject = lasubject;
 	}
 
-	public long getLta_teacher_id() {
-		return lta_teacher_id;
+	public LaTeacher getLateacher() {
+		return lateacher;
 	}
 
-	public void setLta_teacher_id(long lta_teacher_id) {
-		this.lta_teacher_id = lta_teacher_id;
+	public void setLateacher(LaTeacher lateacher) {
+		this.lateacher = lateacher;
 	}
 
-	public LaLta(long id, long lta_class_id, long lta_subject_id, long lta_teacher_id) {
+	public LaLta(long id, LaClass laclass, LaSubject lasubject, LaTeacher lateacher) {
 		super();
 		this.id = id;
-		this.lta_class_id = lta_class_id;
-		this.lta_subject_id = lta_subject_id;
-		this.lta_teacher_id = lta_teacher_id;
+		this.laclass = laclass;
+		this.lasubject = lasubject;
+		this.lateacher = lateacher;
 	}
 
-	public LaLta(long lta_class_id, long lta_subject_id, long lta_teacher_id) {
+	public LaLta(LaClass laclass, LaSubject lasubject, LaTeacher lateacher) {
 		super();
-		this.lta_class_id = lta_class_id;
-		this.lta_subject_id = lta_subject_id;
-		this.lta_teacher_id = lta_teacher_id;
+		this.laclass = laclass;
+		this.lasubject = lasubject;
+		this.lateacher = lateacher;
 	}
 
 	public LaLta() {

@@ -10,8 +10,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.learners.daos.laClassesDao;
 import com.learners.daos.laLtaDao;
+import com.learners.daos.laSubjectDao;
+import com.learners.daos.laTeacherDao;
+import com.learners.entities.LaClass;
 import com.learners.entities.LaLta;
+import com.learners.entities.LaSubject;
+import com.learners.entities.LaTeacher;
 
 /**
  * Servlet implementation class LTATAController
@@ -59,7 +65,11 @@ public class LTATAController extends HttpServlet {
 		Long classId = Long.parseLong(request.getParameter("selectClass"));
 		Long subjectId = Long.parseLong(request.getParameter("selectSubject"));
 		
-		LaLta templta = new LaLta(teacherId, classId, subjectId);
+		LaClass tempClass = laClassesDao.editClass(classId);
+		LaSubject tempSub = laSubjectDao.editSubject(subjectId);
+		LaTeacher tempTeach = laTeacherDao.editTeacher(teacherId);
+		
+		LaLta templta = new LaLta(tempClass, tempSub, tempTeach);
 		laLtaDao.addLta(templta);
 		listLta(request, response);
 		

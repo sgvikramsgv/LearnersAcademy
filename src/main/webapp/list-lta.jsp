@@ -33,9 +33,9 @@
 
  			<c:forEach items="${LTA_LIST}" var="lta">
 				<tr>
-					<td>${lta.lta_class_id}</td>
-					<td>${lta.lta_subject_id}</td>
-					<td>${lta.lta_teacher_id}</td>
+					<td>${lta.laclass.name}</td>
+					<td>${lta.lasubject.name}</td>
+					<td>${lta.lateacher.fname} ${lta.lateacher.lname}</td>
 					<td><a  type="button" class="btn btn-primary me-2 btn-sm" href="LTATAController?REQUEST_TYPE=DELETE&lta=${lta.id}">Delete Mapping</a></td>
 				</tr>
 			</c:forEach>

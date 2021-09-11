@@ -33,6 +33,9 @@ public class LaSubject  implements Serializable {
 	
 	@ManyToMany(mappedBy="subjects")
     private List<LaClass> laclass = new ArrayList<LaClass>();
+	
+	@OneToOne(mappedBy="lasubject")
+	private LaLta lalta;
 
 	public List<LaClass> getLaclass() {
 		return laclass;

@@ -53,7 +53,9 @@ public class LaClass implements Serializable {
 		inverseJoinColumns = { @JoinColumn(name = "subject_id") })
 	private List<LaSubject> subjects = new ArrayList<LaSubject>();
 
-
+	@OneToOne(mappedBy="laclass")
+	private LaLta lalta;
+	
 	public Collection<LaStudent> getStudents() {
 		return students;
 	}
