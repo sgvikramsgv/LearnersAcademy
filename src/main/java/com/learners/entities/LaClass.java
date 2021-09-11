@@ -43,7 +43,7 @@ public class LaClass implements Serializable {
 	@Column(name="class_capacity")
 	private int capacity;
 	
-	@OneToMany(mappedBy="class_id")
+	@OneToMany(mappedBy="class_id", fetch=FetchType.EAGER)
 	private Collection<LaStudent> students;
 	
 	@ManyToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER)

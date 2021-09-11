@@ -23,9 +23,9 @@
 		<table class="table table-bordered table-hover">
 		  <thead class="table-light">
 		    <tr>
-		      <th scope="col">Teacher</th>
 		      <th scope="col">Class</th>
 		      <th scope="col">Subject</th>
+		      <th scope="col">Teacher</th>
 		      <th scope="col">Action</th>
 		    </tr>
 		  </thead>

@@ -2,6 +2,7 @@ com\learners\servlets\LoginCheckFilter.class
 com\learners\entities\LaSubject.class
 com\learners\daos\laStudentDao.class
 com\learners\utils\dbAccess.class
+com\learners\servlets\testServlet.class
 com\learners\daos\laLtaDao.class
 com\learners\servlets\StudentController.class
 com\learners\entities\LaLta.class

@@ -3,6 +3,17 @@
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@include file="/asset/header.jsp" %>
+<%@page import="com.learners.entities.LaLta, com.learners.daos.laLtaDao" %>
+
+<%
+List<LaLta> tempLta = laLtaDao.listLta();
+
+if(tempLta!=null) {
+	request.setAttribute("LTA_LIST", tempLta);
+}
+
+
+%>
 
 <h1 class="text-center headerbackground">Learner's Academy Schedules</h1>
 <p></p>
@@ -10,17 +21,6 @@
 <div class="row headerrow">
 	<div></div>
 	<div>
-		<form>
-		  <div class="form-group">
-		    <label for="selectClass">Select Student for Details</label>
-		    <select class="form-control form-control-sm" id="selectStudent" name="selectStudent">
-				<c:forEach items="${CLASS_LIST}" var="cla">
-					<option>${cla.name}</option>
-				</c:forEach>
-		    </select>
-		  </div>
-		  <input type="submit" class="btn btn-primary btn-sm form-control resourceAdd" value="Get Details">
-		</form>
 	</div>
 	<div></div>
 </div>
@@ -28,7 +28,6 @@
 <table class="table table-bordered table-hover">
   <thead class="table-light">
     <tr>
-      <th scope="col">#</th>
       <th scope="col">Class</th>
       <th scope="col">Subjects</th>
       <th scope="col">Teachers</th>
@@ -36,9 +35,20 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      
-    </tr>
+	  <c:forEach items="${LTA_LIST}" var="lta">
+			<tr>
+				<td>${lta.laclass.name}</td>
+				<td>${lta.lasubject.name}</td>
+				<td>${lta.lateacher.fname} ${lta.lateacher.lname}</td>
+				<td>
+					<c:if test="${not empty lta.laclass.students}">
+					<c:forEach items="${lta.laclass.students}" var="stu">
+						<p>${stu.firstName} ${stu.lastName}</p>
+					</c:forEach>
+					</c:if>
+				</td>
+			</tr>
+	  </c:forEach>
   </tbody>
 </table>
 </div>

@@ -27,13 +27,9 @@
 				<tr>
 					<td>${cla.name}</td>
 					<td>
-						
 						<c:forEach items="${cla.subjects}" var="sub">
 							<p>${sub.name}</p>
-						
 						</c:forEach>
-						
-					
 					</td>
 					<td>
 						<a  type="button" class="btn btn-primary me-2 btn-sm" href="ClassSubjectController?REQUEST_TYPE=DELETE&cla=${cla.id}">Delete Mapping</a>
