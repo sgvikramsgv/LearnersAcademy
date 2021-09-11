@@ -8,15 +8,15 @@
 <div class="row container-main">
 	<div class="col"></div>
 
-		<h1 class="text-center headerbackground">Class Management</h1>
+		<h1 class="text-center headerbackground">Class Subject Assignment Management</h1>
 		
-		<a href="add-class-subject-form.jsp" type="button" class="btn btn-primary me-2 btn-sm resourceAdd">Map Class Subject</a>
+		<a href="add-class-subject-form.jsp" type="button" class="btn btn-primary me-2 btn-sm resourceAdd">New Assignment</a>
 
 		<table class="table table-bordered table-hover">
 		  <thead class="table-light">
 		    <tr>
 		      <th scope="col">Class Name</th>
-		      <th scope="col">Capacity</th>
+		      <th scope="col">Subjects</th>
 		      <th scope="col">Action</th>
 		    </tr>
 		  </thead>

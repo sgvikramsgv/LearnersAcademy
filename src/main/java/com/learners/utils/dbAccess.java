@@ -4,6 +4,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import com.learners.entities.LaClass;
+import com.learners.entities.LaLta;
 import com.learners.entities.LaStudent;
 import com.learners.entities.LaSubject;
 import com.learners.entities.LaTeacher;
@@ -20,6 +21,7 @@ public class dbAccess {
 				.addAnnotatedClass(LaSubject.class)
 				.addAnnotatedClass(LaTeacher.class)
 				.addAnnotatedClass(LaUser.class)
+				.addAnnotatedClass(LaLta.class)
 				.buildSessionFactory();
 		
 		return sessionFactory;

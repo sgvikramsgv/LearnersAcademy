@@ -9,10 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.learners.daos.laClassesDao;
+import com.learners.daos.laLtaDao;
 import com.learners.daos.laStudentDao;
 import com.learners.daos.laSubjectDao;
 import com.learners.daos.laTeacherDao;
 import com.learners.entities.LaClass;
+import com.learners.entities.LaLta;
 import com.learners.entities.LaStudent;
 import com.learners.entities.LaSubject;
 import com.learners.entities.LaTeacher;
@@ -41,6 +43,7 @@ public class HomeServlet extends HttpServlet {
 		List<LaStudent> students = laStudentDao.listStudents();
 		List<LaSubject> subjects = laSubjectDao.listSubject();
 		List<LaTeacher> teachers = laTeacherDao.listTeachers();
+		List<LaLta> alllta = laLtaDao.listLta();
 		
 		if(classes!=null) {
 			request.getSession().setAttribute("CLASSES_LIST", classes);

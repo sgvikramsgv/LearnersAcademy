@@ -37,7 +37,7 @@ public class ClassController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-String requestType = request.getParameter("REQUEST_TYPE");
+		String requestType = request.getParameter("REQUEST_TYPE");
 		
 		if(requestType == null) {
 			requestType = "LIST";
